@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap');
 
+
+:root {
+ --primary-color: #1e40af;
+ --heading-color: #000000;
+ --text-color: #1f2937;
+ --light-text: #6b7280;
+ --background: #dec9c9;
+ --light-background: #f9fafb;
+ --card-background: #f8f9fa;
+ --card-border: #e9ecef;
+ --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ --card-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
+ --accent-color: #825f80;
+ --link-hover: #874f75;
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,14 +27,14 @@
 h1, h2, h3 {
   font-family:'Merriweather';
   line-height: 1.2;
-  color: #333;
+  color: var(--heading-color);
 }
 
 body {
   font-family: 'Zalando Sans';
   line-height: 1.6;
-  background-color: #f4f4f4;
-  color: #555;
+  color: var(--text-color);
+  background-color: var(--background);
 }
 header {
   display: flex;
@@ -31,7 +46,7 @@ header {
   gap: 2rem;
   height: 60vh;
   padding: 2rem;
-  background-color: #dfd6c3;
+  background-color: #d6b3da;
 }
 
 .header_pic {
@@ -55,7 +70,7 @@ header {
 .header_text {
   flex: 1;
   padding: 2rem;
-  background-color: #8caad4;
+  background-color: #ab79a2;
 }
 
 /* Navigation */
@@ -120,19 +135,25 @@ main {
 }
 
 /* Section headings */
-section h2 {
+section h1 {
+  color: var(--heading-color);  
   text-align: center;
   font-size: 2.5rem;
 /* ========================= */
 /* 5. Section Headings       */
 /* ========================= */
   margin-bottom: 3rem;
-  color: #2c3e50;
+  position: relative;
+}
+
+section h2 {
+  color: var(--heading-color);
+  text-align: center;
   position: relative;
 }
 
 section h2::after {
- content: '';
+  content: '';
   position: absolute;
   bottom: -1rem;
   left: 50%;
@@ -142,6 +163,7 @@ section h2::after {
   background: linear-gradient(90deg, #667eea, #764ba2);
   border-radius: 2px;
 }
+
 
 
 .about-section {
@@ -192,7 +214,7 @@ section h2::after {
 }
 
 .skill-card h3 {
-  color: #2c3e50;
+  color: var(--heading-color);
   margin-bottom: 0.5rem;
 }
 
@@ -221,7 +243,7 @@ section h2::after {
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 .project-card h3 {
-  color: #2c3e50;
+  color: var(--heading-color);
   margin-bottom: 1rem;
 }
 
