@@ -9,13 +9,18 @@
 /* 1. Reset & Base Styles    */
 /* ========================= */
 
-body {
-  font-family:'Merriweather', 'Zalando Sans';
-  line-height: 1.6;
+h1, h2, h3 {
+  font-family:'Merriweather';
+  line-height: 1.2;
   color: #333;
 }
 
-
+body {
+  font-family: 'Zalando Sans';
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #555;
+}
 header {
   display: flex;
   align-items: center;
