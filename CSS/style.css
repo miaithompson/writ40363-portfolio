@@ -73,7 +73,7 @@ header {
 .header_text {
   flex: 1;
   padding: 2rem;
-  background-color: #d5c4d3;
+  background-color: #cdb6cb;
 }
 
 /* Navigation */
@@ -96,7 +96,7 @@ nav {
   font-size: 1.25rem;
   font-weight: bold;
   text-decoration: none;
-  color: #a89fa9;
+  color: #000000;
 }
 
 .nav-links {
@@ -106,12 +106,12 @@ nav {
 
 .nav-links a {
   text-decoration: none;
-  color: #dbc4d7;
+  color: #000000;
   font-weight: 500;
 }
 
 .nav-links a:hover {
-  color: #2a0731;
+  color: #f1d9f5;
 }
 
 /* Main container */
