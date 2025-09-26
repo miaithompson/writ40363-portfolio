@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap');
-
-
 :root {
- --primary-color: #1e40af;
+ --primary-color: #cdb0ca;
  --heading-color: #000000;
  --text-color: #1f2937;
  --light-text: #6b7280;
@@ -27,15 +25,20 @@
 h1, h2, h3 {
   font-family:'Merriweather';
   line-height: 1.2;
+  color: #333;
   color: var(--heading-color);
 }
 
 body {
   font-family: 'Zalando Sans';
   line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #555;
   color: var(--text-color);
   background-color: var(--background);
 }
+
+
 header {
   display: flex;
   align-items: center;
@@ -46,7 +49,7 @@ header {
   gap: 2rem;
   height: 60vh;
   padding: 2rem;
-  background-color: #ddb0cb;
+  background-color: #dfd6c3;
 }
 
 .header_pic {
@@ -56,7 +59,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #c8cac4;
+  background-color: #dfd6c3;
 }
 
 .header_pic img {
@@ -70,7 +73,7 @@ header {
 .header_text {
   flex: 1;
   padding: 2rem;
-  background-color: #ab79a2;
+  background-color: #d5c4d3;
 }
 
 /* Navigation */
@@ -93,7 +96,7 @@ nav {
   font-size: 1.25rem;
   font-weight: bold;
   text-decoration: none;
-  color: #2c3e50;
+  color: #a89fa9;
 }
 
 .nav-links {
@@ -103,12 +106,12 @@ nav {
 
 .nav-links a {
   text-decoration: none;
-  color: #2c3e50;
+  color: #dbc4d7;
   font-weight: 500;
 }
 
 .nav-links a:hover {
-  color: #28a745;
+  color: #2a0731;
 }
 
 /* Main container */
@@ -135,35 +138,30 @@ main {
 }
 
 /* Section headings */
-section h1 {
-  color: var(--heading-color);  
+section h2 {
+color: var(--text-color);
   text-align: center;
   font-size: 2.5rem;
 /* ========================= */
 /* 5. Section Headings       */
 /* ========================= */
   margin-bottom: 3rem;
-  position: relative;
-}
-
-section h2 {
-  color: var(--heading-color);
-  text-align: center;
+  color: #2c3e50;
   position: relative;
 }
 
 section h2::after {
-  content: '';
+color: var(--text-color);
+ content: '';
   position: absolute;
   bottom: -1rem;
   left: 50%;
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
+  background: linear-gradient(90deg, #d2bbdb, #b69fb2);
   border-radius: 2px;
 }
-
 
 
 .about-section {
@@ -214,7 +212,7 @@ section h2::after {
 }
 
 .skill-card h3 {
-  color: var(--heading-color);
+  color: #2c3e50;
   margin-bottom: 0.5rem;
 }
 
@@ -243,7 +241,7 @@ section h2::after {
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 .project-card h3 {
-  color: var(--heading-color);
+  color: #2c3e50;
   margin-bottom: 1rem;
 }
 
