@@ -1,3 +1,9 @@
+/* Ensure links in skill cards wrap and stay inside the card */
+.skill-card a {
+  word-break: break-all;
+  display: inline-block;
+  max-width: 100%;
+}
 
 #about h2 {
   color: black;
@@ -58,7 +64,7 @@ header {
   gap: 2rem;
   height: 60vh;
   padding: 2rem;
-  background-color: #dfd6c3;
+  background-color: #8d808c;
 }
 
 .header_pic {
@@ -68,7 +74,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #dfd6c3;
+  background-color: #8d808c;
 }
 
 .header_pic img {
@@ -82,12 +88,12 @@ header {
 .header_text {
   flex: 1;
   padding: 2rem;
-  background-color: #a597a4;
+  background-color: #cdb9c3;
 }
 
 /* Navigation */
 nav {
-  background-color: #fff;
+  background-color: #cdb9c3;
   padding: 1rem 2rem;
 /* ========================= */
 /* 3. Navigation             */
@@ -120,7 +126,7 @@ nav {
 }
 
 .nav-links a:hover {
-  color: #997c9f;
+  color: #f0e9f1;
 }
 
 /* Main container */
@@ -224,7 +230,7 @@ color: var(--text-color);
 
 .skill-card {
   padding: 1.5rem;
-  background: #f8f9fa;
+  background: #8d808c;
   border-radius: 8px;
   text-align: center;
   border: 1px solid #e9ecef;
@@ -248,8 +254,8 @@ color: var(--text-color);
 
 .project-card {
   padding: 2rem;
-  background: white;
-  border: 1px solid #e9ecef;
+  background: rgb(254, 254, 254);
+  border: 1px solid #f2f3f3;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
