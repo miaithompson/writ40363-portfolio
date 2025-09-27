@@ -1,4 +1,18 @@
-/* Ensure links in skill cards wrap and stay inside the card */
+/* Two-column layout for Skills & Interests section */
+.skills-interests-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
 .skill-card a {
   word-break: break-all;
   display: inline-block;
@@ -17,16 +31,22 @@
 :root {
  --primary-color: #cdb0ca;
  --heading-color: #000000;
- --text-color: #1f2937;
- --light-text: #6b7280;
+ --text-color: #000000;
+ --light-text: #000102;
  --background: #dec9c9;
  --light-background: #f9fafb;
  --card-background: #f8f9fa;
  --card-border: #e9ecef;
  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
  --card-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
- --accent-color: #825f80;
- --link-hover: #9e718f;
+ --accent-color: #070607;
+
+ a:hover {
+  color: #e7cfe5;
+}
+ a {
+  color: rgb(0, 0, 0);
+}
 }
 * {
   box-sizing: border-box;
@@ -88,12 +108,12 @@ header {
 .header_text {
   flex: 1;
   padding: 2rem;
-  background-color: #cdb9c3;
+  background-color: #cbb3c2;
 }
 
 /* Navigation */
 nav {
-  background-color: #d8c3d4;
+  background-color: #cbb3c2;
   padding: 1rem 2rem;
 /* ========================= */
 /* 3. Navigation             */
@@ -273,7 +293,7 @@ color: var(--text-color);
   background: rgb(254, 254, 254);
   border: 1px solid #f2f3f3;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.885);
   transition: transform 0.3s ease;
 }
 .project-card:hover {
@@ -281,7 +301,7 @@ color: var(--text-color);
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 .project-card h3 {
-  color: #2c3e50;
+  color: #000000;
   margin-bottom: 1rem;
 }
 
