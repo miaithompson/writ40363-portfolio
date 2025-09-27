@@ -1,3 +1,12 @@
+
+#about h2 {
+  color: black;
+}
+
+
+#skills h2 {
+  color: black;
+}
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap');
 :root {
  --primary-color: #cdb0ca;
@@ -11,7 +20,7 @@
  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
  --card-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
  --accent-color: #825f80;
- --link-hover: #874f75;
+ --link-hover: #9e718f;
 }
 * {
   box-sizing: border-box;
@@ -33,7 +42,7 @@ body {
   font-family: 'Zalando Sans';
   line-height: 1.6;
   background-color: #f4f4f4;
-  color: #555;
+  color: #070000;
   color: var(--text-color);
   background-color: var(--background);
 }
@@ -73,7 +82,7 @@ header {
 .header_text {
   flex: 1;
   padding: 2rem;
-  background-color: #cdb6cb;
+  background-color: #a597a4;
 }
 
 /* Navigation */
@@ -96,7 +105,7 @@ nav {
   font-size: 1.25rem;
   font-weight: bold;
   text-decoration: none;
-  color: #000000;
+  color: #020003;
 }
 
 .nav-links {
@@ -111,7 +120,7 @@ nav {
 }
 
 .nav-links a:hover {
-  color: #f1d9f5;
+  color: #997c9f;
 }
 
 /* Main container */
@@ -212,7 +221,7 @@ color: var(--text-color);
 }
 
 .skill-card h3 {
-  color: #2c3e50;
+  color: #000102;
   margin-bottom: 0.5rem;
 }
 
