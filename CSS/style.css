@@ -93,7 +93,7 @@ header {
 
 /* Navigation */
 nav {
-  background-color: #cdb9c3;
+  background-color: #d8c3d4;
   padding: 1rem 2rem;
 /* ========================= */
 /* 3. Navigation             */
@@ -206,7 +206,7 @@ color: var(--text-color);
 
 .about-image img {
   width: 100%;
-  max-width: 250px;
+  max-width: 450px;
   height: auto;
   border-radius: 8px;
 }
@@ -215,6 +215,8 @@ color: var(--text-color);
   flex: 2;
   min-width: 250px;
   text-align: left;
+  font-size: 1.15rem;
+  line-height: 2;
 }
 
 
