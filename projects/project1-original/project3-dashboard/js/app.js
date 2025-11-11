@@ -128,10 +128,87 @@ function displayQuotesError() {
     </div>
   `;
 }
+// Function to add a new task
+function addTask(taskText) {
+  const tasks = loadTasks();
 
+  const newTask = {
+    text: taskText,
+    completed: false,
+    id: Date.now() // Unique ID using timestamp
+  };
+
+  tasks.push(newTask);
+  saveTasks(tasks);
+  displayTasks();
+
+  console.log('Task added:', newTask);
+}
+
+// Set up form submission
+function setupTaskForm() {
+  const taskForm = document.getElementById('task-form');
+  const taskInput = document.getElementById('task-input');
+
+  taskForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // Prevent page reload
+
+    const taskText = taskInput.value.trim();
+
+    if (taskText) {
+      addTask(taskText);
+      taskInput.value = ''; // Clear input
+      taskInput.focus(); // Focus back on input
+    }
+  });
+}
+// Function to toggle task complete/incomplete
+function toggleTask(index) {
+  const tasks = loadTasks();
+  tasks[index].completed = !tasks[index].completed;
+  saveTasks(tasks);
+  displayTasks();
+
+  console.log('Task toggled:', tasks[index]);
+}
 // Call loadQuotes when page loads
 loadQuotes();
+// Function to delete a task
+function deleteTask(index) {
+  const tasks = loadTasks();
+  const taskToDelete = tasks[index];
 
+  // Optional: Confirm before deleting
+  if (confirm(`Delete task: "${taskToDelete.text}"?`)) {
+    tasks.splice(index, 1);
+    saveTasks(tasks);
+    displayTasks();
+
+    console.log('Task deleted');
+  }
+  // Function to update task statistics
+function updateTaskStats(tasks) {
+  const statsDiv = document.getElementById('task-stats');
+
+  const totalTasks = tasks.length;
+  const completedTasks = tasks.filter(task => task.completed).length;
+  const pendingTasks = totalTasks - completedTasks;
+
+  if (totalTasks === 0) {
+    statsDiv.innerHTML = '';
+    return;
+  }
+
+  const completionPercentage = Math.round((completedTasks / totalTasks) * 100);
+
+  statsDiv.innerHTML = `
+    <div class="stat">Total: <strong>${totalTasks}</strong></div>
+    <div class="stat">Completed: <strong>${completedTasks}</strong></div>
+    <div class="stat">Pending: <strong>${pendingTasks}</strong></div>
+    <div class="stat">Progress: <strong>${completionPercentage}%</strong></div>
+  `;
+}
+}
 // Set up "New Quote" button
 function setupQuotesButton() {
   const newQuoteBtn = document.getElementById('new-quote-btn');
@@ -144,3 +221,48 @@ function setupQuotesButton() {
 
 // Call setupQuotesButton after DOM is loaded
 setupQuotesButton();
+loadQuotes();
+setupQuotesButton();
+// ========================================
+// TASKS WIDGET (from LAB18)
+// ========================================
+
+// Function to load tasks from localStorage
+function loadTasks() {
+  const tasksJSON = localStorage.getItem('dashboardTasks');
+
+  if (tasksJSON) {
+    return JSON.parse(tasksJSON);
+  } else {
+    return []; // Return empty array if no tasks yet
+  }
+}
+
+// Function to save tasks to localStorage
+function saveTasks(tasks) {
+  localStorage.setItem('dashboardTasks', JSON.stringify(tasks));
+  console.log('Tasks saved:', tasks);
+}
+// ========================================
+// TASKS WIDGET (from LAB18)
+// ========================================
+
+// Function to load tasks from localStorage
+function loadTasks() {
+  const tasksJSON = localStorage.getItem('dashboardTasks');
+
+  if (tasksJSON) {
+    return JSON.parse(tasksJSON);
+  } else {
+    return []; // Return empty array if no tasks yet
+  }
+}
+
+// Function to save tasks to localStorage
+function saveTasks(tasks) {
+  localStorage.setItem('dashboardTasks', JSON.stringify(tasks));
+  console.log('Tasks saved:', tasks);
+}
+// Initialize tasks when page loads
+displayTasks();
+setupTaskForm();
