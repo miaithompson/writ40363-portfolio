@@ -186,13 +186,17 @@ function deleteTask(index) {
 
     console.log('Task deleted');
   }
-  // Function to update task statistics
+}
+
+// Function to update task statistics
 function updateTaskStats(tasks) {
   const statsDiv = document.getElementById('task-stats');
 
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter(task => task.completed).length;
   const pendingTasks = totalTasks - completedTasks;
+
+  if (!statsDiv) return;
 
   if (totalTasks === 0) {
     statsDiv.innerHTML = '';
@@ -208,6 +212,46 @@ function updateTaskStats(tasks) {
     <div class="stat">Progress: <strong>${completionPercentage}%</strong></div>
   `;
 }
+
+// Render tasks list and attach listeners
+function displayTasks() {
+  const tasks = loadTasks();
+  const list = document.getElementById('tasks-list');
+
+  if (!list) return;
+
+  if (tasks.length === 0) {
+    list.innerHTML = '<div class="no-tasks">No tasks yet</div>';
+    updateTaskStats(tasks);
+    return;
+  }
+
+  list.innerHTML = tasks
+    .map((task, index) => `
+      <div class="task-item ${task.completed ? 'completed' : ''}">
+        <input type="checkbox" ${task.completed ? 'checked' : ''} data-index="${index}" />
+        <div class="task-text">${task.text}</div>
+        <button class="btn-delete" data-index="${index}">Delete</button>
+      </div>
+    `)
+    .join('');
+
+  // Attach listeners
+  list.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', (e) => {
+      const idx = parseInt(e.target.dataset.index, 10);
+      toggleTask(idx);
+    });
+  });
+
+  list.querySelectorAll('.btn-delete').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const idx = parseInt(e.target.dataset.index, 10);
+      deleteTask(idx);
+    });
+  });
+
+  updateTaskStats(tasks);
 }
 // Set up "New Quote" button
 function setupQuotesButton() {
@@ -219,30 +263,9 @@ function setupQuotesButton() {
   });
 }
 
-// Call setupQuotesButton after DOM is loaded
+// Call setupQuotesButton and load quotes after DOM is loaded
 setupQuotesButton();
 loadQuotes();
-setupQuotesButton();
-// ========================================
-// TASKS WIDGET (from LAB18)
-// ========================================
-
-// Function to load tasks from localStorage
-function loadTasks() {
-  const tasksJSON = localStorage.getItem('dashboardTasks');
-
-  if (tasksJSON) {
-    return JSON.parse(tasksJSON);
-  } else {
-    return []; // Return empty array if no tasks yet
-  }
-}
-
-// Function to save tasks to localStorage
-function saveTasks(tasks) {
-  localStorage.setItem('dashboardTasks', JSON.stringify(tasks));
-  console.log('Tasks saved:', tasks);
-}
 // ========================================
 // TASKS WIDGET (from LAB18)
 // ========================================
@@ -266,3 +289,49 @@ function saveTasks(tasks) {
 // Initialize tasks when page loads
 displayTasks();
 setupTaskForm();
+// Theme Management
+function initializeTheme() {
+  // Check for saved theme preference
+  const savedTheme = localStorage.getItem('dashboardTheme');
+
+  if (savedTheme === 'dark') {
+    document.body.classList.add('theme-dark');
+    updateThemeIcon('dark');
+  } else {
+    updateThemeIcon('light');
+  }
+}
+
+function toggleTheme() {
+  const isDark = document.body.classList.toggle('theme-dark');
+
+  // Save preference
+  localStorage.setItem('dashboardTheme', isDark ? 'dark' : 'light');
+
+  // Update icon
+  updateThemeIcon(isDark ? 'dark' : 'light');
+
+  console.log('Theme switched to:', isDark ? 'dark' : 'light');
+}
+
+function updateThemeIcon(theme) {
+  const themeIcon = document.querySelector('.theme-icon');
+
+  if (theme === 'dark') {
+    themeIcon.textContent = '☀️'; // Sun for dark mode (to switch to light)
+  } else {
+    themeIcon.textContent = '🌙'; // Moon for light mode (to switch to dark)
+  }
+}
+
+function setupThemeToggle() {
+  const themeToggleBtn = document.getElementById('theme-toggle');
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', toggleTheme);
+  }
+}
+
+// Call these when page loads
+initializeTheme();
+setupThemeToggle();
