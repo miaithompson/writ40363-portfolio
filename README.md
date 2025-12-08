@@ -9,7 +9,7 @@
 
 This repository contains my web development projects from WRIT 40363. The main portfolio site showcases my work and growth as a web developer.
 
-**Live Portfolio:** [https://miaithompson.github.io/writ40363-portfolio-yourname/](https://miaithompson.github.io/writ40363-portfolio-yourname/)
+**Live Portfolio:** (https://miaithompson.github.io/writ40363-portfolio/projects/project1-original/)
 
 ## Repository Structure
 
